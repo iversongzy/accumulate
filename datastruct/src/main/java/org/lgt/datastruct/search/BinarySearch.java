@@ -22,6 +22,95 @@ public class BinarySearch {
         return -1;
     }
 
+    /**
+     * 查找第一个值等于给定值的元素
+     */
+    public int bSearchFindFirst(int[] array, int value) {
+        int low = 0;
+        int high = array.length - 1;
+        while (low <= high) {
+            int mid = low + ((high - low) >> 1);
+            if (array[mid] > value) {
+                high = mid - 1;
+            } else if (array[mid] < value) {
+                low = mid + 1;
+            } else {
+                if (mid == 0 || array[mid - 1] != value) {
+                    return mid;
+                } else {
+                    high = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 查找最后一个值等于给定值的元素
+     */
+    public int bSearchFindLast(int[] array, int value) {
+        int low = 0;
+        int high = array.length - 1;
+        while (low <= high) {
+            int mid = low + ((high - low) >> 1);
+            if (array[mid] > value) {
+                high = mid - 1;
+            } else if (array[mid] < value) {
+                low = mid + 1;
+            } else {
+                if (mid == array.length - 1 || array[mid + 1] != value) {
+                    return mid;
+                } else {
+                    low = mid + 1;
+                }
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 查找第一个大于等于给定值的元素
+     */
+    public int bSearchFindMore(int[] array, int value) {
+        int low = 0;
+        int high = array.length - 1;
+        while (low <= high) {
+            int mid = low + ((high - low) >> 1);
+            if (array[mid] >= value) {
+                if (mid == 0 || array[mid - 1] < value) {
+                    return mid;
+                } else {
+                    high = mid - 1;
+                }
+            } else {
+                low = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 查找第一个小于等于给定值的元素
+     */
+    public int bSearchFindLess(int[] array, int value) {
+        int low = 0;
+        int high = array.length - 1;
+        while (low <= high) {
+            int mid = low + ((high - low) >> 1);
+            if (array[mid] <= value) {
+                if (mid == array.length - 1 || array[mid + 1] > value) {
+                    return mid;
+                } else {
+                    low = mid + 1;
+                }
+            } else {
+                high = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+
     public int binarySearchByRecursion(int[] array, int size, int target) {
         return searchInternally(array, 0, size - 1, target);
     }
