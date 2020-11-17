@@ -67,4 +67,12 @@ public class SortTest {
         sort.show(array);
     }
 
+    @Test
+    public void shellSortTest() {
+        ShellSort sort = new ShellSort();
+        sort.sort(array);
+        sort.show(array);
+    }
+
+
 }
