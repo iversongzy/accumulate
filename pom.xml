@@ -11,6 +11,8 @@
     <modules>
         <module>datastruct</module>
         <module>thread</module>
+        <module>java8</module>
+        <module>designmode</module>
     </modules>
 
     <dependencyManagement>
