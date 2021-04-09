@@ -10,7 +10,7 @@ import org.junit.Test;
  **/
 public class SortTest {
     //int[] array = {-1,2,-8,-10};
-    int[] array = {6,9,3,7,2,8,4};
+    int[] array = {7,5,6,4};
     @Test
     public void bubbleSortTest() {
         BubbleSort sort = new BubbleSort();
@@ -33,7 +33,7 @@ public class SortTest {
     }
 
     @Test
-    public void mergeSortTest() {
+    public void   mergeSortTest() {
         MergeSort sort = new MergeSort();
         sort.sort(array);
         sort.show(array);

@@ -13,6 +13,7 @@
         <module>thread</module>
         <module>java8</module>
         <module>designmode</module>
+        <module>mybatis</module>
     </modules>
 
     <dependencyManagement>

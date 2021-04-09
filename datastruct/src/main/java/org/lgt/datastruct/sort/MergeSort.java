@@ -6,9 +6,11 @@ package org.lgt.datastruct.sort;
  * @Date2020/11/9 22:49
  **/
 public class MergeSort extends Sort {
+    private int a = 0;
     @Override
     public void sort(int[] array) {
-        mergeSort(array, 0, array.length - 1);
+        //mergeSort(array, 0, array.length - 1);
+        mergeSort2(array);
     }
 
     private void mergeSort(int[] array, int left, int right) {
@@ -71,6 +73,7 @@ public class MergeSort extends Sort {
         while (leftSubArrayIndex < middle || rightSubArrayIndex < right) {
             if (rightSubArrayIndex >= right || leftSubArrayIndex < middle && nums[leftSubArrayIndex] <= nums[rightSubArrayIndex]) {
                 tempArray[currentIndex++] = nums[leftSubArrayIndex++];
+                a += rightSubArrayIndex - middle;
             } else {
                 tempArray[currentIndex++] = nums[rightSubArrayIndex++];
             }

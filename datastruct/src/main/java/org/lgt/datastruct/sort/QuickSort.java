@@ -12,7 +12,8 @@ public class QuickSort extends Sort {
 
     @Override
     public void sort(int[] array) {
-        quickSort(array, 0, array.length - 1);
+        //quickSort(array, 0, array.length - 1);
+        quickSort2(array);
         Arrays.sort(array);
     }
 
@@ -26,6 +27,36 @@ public class QuickSort extends Sort {
         //根据基准元素，分成两部分进行递归排序
         quickSort(arr, left, pivot - 1);
         quickSort(arr, pivot + 1, right);
+    }
+
+    public void quickSort2(int[] arr) {
+        if(arr == null) {
+            return;
+        }
+        qSort(arr, 0, arr.length);
+
+    }
+
+    private void qSort(int[] arr, int begin, int end) {
+        if(begin >= end || begin+1 >= end) {
+            return;
+        }
+        int left = begin;
+        int current = begin;
+        int right = end - 1;
+        int middle = begin + ((end - begin) >> 1);
+        final int middleValue = arr[middle];
+        while (current <= right) {
+            if(arr[current] < middleValue) {
+                swap(arr, current++, left++);
+            } else if(arr[current] == middleValue) {
+                current++;
+            } else {
+                swap(arr, current, right--);
+            }
+        }
+        qSort(arr, begin, left);
+        qSort(arr, current, end);
     }
 
     private int partition1(int[] arr, int left, int right) {
