@@ -22,4 +22,39 @@ public class UserDaoTest {
         users.forEach(System.out::println);
         sqlSession.close();
     }
+
+    @Test
+    public void getUserByIdTest() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserDao dao = sqlSession.getMapper(UserDao.class);
+        System.out.println(dao.getUserById(1));
+        sqlSession.close();
+    }
+
+    @Test
+    public void addUserTest() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserDao dao = sqlSession.getMapper(UserDao.class);
+        dao.addUser(new User(4, "haha", "105922"));
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    @Test
+    public void updateUserTest() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserDao dao = sqlSession.getMapper(UserDao.class);
+        dao.updateUser(new User(4, "haha", "ddd"));
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    @Test
+    public void deleteTest() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserDao dao = sqlSession.getMapper(UserDao.class);
+        dao.deleteUser(4);
+        sqlSession.commit();
+        sqlSession.close();
+    }
 }
