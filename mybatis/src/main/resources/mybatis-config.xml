@@ -34,5 +34,6 @@
     </environments>
     <mappers>
         <mapper resource="org/lgt/dao/UserMapping.xml"></mapper>
+        <mapper resource="org/lgt/dao/UserAMapping.xml"></mapper>
     </mappers>
 </configuration>

@@ -24,6 +24,7 @@
         </dependency>
     </dependencies>
 
+    <!--解决静态过滤问题-->
     <build>
         <resources>
             <resource>

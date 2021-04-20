@@ -3,25 +3,22 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace绑定一个对应的Dao/Mapper接口-->
-<mapper namespace="org.lgt.dao.UserDao">
-    <select id="getUsers" resultType="org.lgt.pojo.User">
-    select * from mybatis.user
+<mapper namespace="org.lgt.dao.UserADao">
+
+    <resultMap id="userAMapper" type="org.lgt.pojo.UserA">
+        <result column="pwd" property="passwd"></result>
+    </resultMap>
+
+    <select id="getUsers" resultMap="userAMapper">
+        select * from mybatis.user
     </select>
 
-    <select id="getUserById" parameterType="int" resultType="org.lgt.pojo.User">
+ <!--   <select id="getUserById" parameterType="int" resultType="org.lgt.pojo.User">
         select * from mybatis.user where id = #{id}
     </select>
 
     <select id="getUserByName" parameterType="String" resultType="org.lgt.pojo.User">
         select * from mybatis.user where name like #{liu}"%"
-    </select>
-
-    <select id="getUserByNameAndPasswd" resultType="org.lgt.pojo.User">
-        select * from user where name = #{name} and pwd = #{pwd}
-    </select>
-
-    <select id="getUserByNameAndPasswd2" parameterType="map" resultType="org.lgt.pojo.User">
-        select * from user where name = #{name} and pwd = #{pwd}
     </select>
 
     <insert id="addUser" parameterType="org.lgt.pojo.User">
@@ -38,5 +35,5 @@
 
     <delete id="deleteUser">
         delete from user where id = #{id};
-    </delete>
+    </delete>-->
 </mapper>

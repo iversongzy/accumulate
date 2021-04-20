@@ -12,7 +12,7 @@
         <module>datastruct</module>
         <module>thread</module>
         <module>java8</module>
-        <module>designmode</module>
+        <module>designpattern</module>
         <module>mybatis</module>
     </modules>
 
